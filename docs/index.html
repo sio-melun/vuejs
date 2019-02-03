@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="description" content="TP d'initialtion Vue.js">
+<meta name="author" content="Section BTS SIO SLAM (LDV Melun) O. Capuozzo, G. Chamillard">
+<title>VueJS Introduction</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+</head>
+<body class="article toc2 toc-left">
+<div id="header">
+<h1>VueJS Introduction</h1>
+<div class="details">
+<span id="author" class="author">Section BTS SIO SLAM (LDV Melun) O. Capuozzo, G. Chamillard</span><br>
+<span id="revnumber">version 1.0,</span>
+<span id="revdate">2018-07-30</span>
+<br><span id="revremark">Version asciidoc</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table des matieres</div>
+<ul class="sectlevel1">
+<li><a href="#présentation">Présentation</a></li>
+<li><a href="#premier-tp">Premier TP</a>
+<ul class="sectlevel2">
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#sujet-du-tp">Sujet du TP</a></li>
+<li><a href="#travaux-pratiques">Travaux pratiques</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="présentation"><a class="anchor" href="#présentation"></a>Présentation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="image"><img src="images/logo-vuejs.png" alt="logo vuejs" width="200" title="Vue.js"></span></p>
+</div>
+<div class="paragraph">
+<p>Vue est un framework JavaScript relativement bien documenté (<a href="https://fr.vuejs.org/index.html" class="bare">https://fr.vuejs.org/index.html</a>),
+facile d&#8217;accès et performant, centré sur la notion de composant réutilisable, testable et maintenanble.</p>
+</div>
+<div class="paragraph">
+<p>Pour réaliser les travaux pratiques, vous aurez besoin d&#8217;aller plus en profondeur sur la connaissance des composants.
+La documentation Vue.js est accessible ici : <a href="https://fr.vuejs.org/v2/guide/index.html" class="bare">https://fr.vuejs.org/v2/guide/index.html</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="premier-tp"><a class="anchor" href="#premier-tp"></a>Premier TP</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h3>
+<div class="paragraph">
+<p>L&#8217;exercice de programmation que l&#8217;on vous propose a  pour objectif
+de vous permettre de consolider les premiers concepts présentés dans
+la page d&#8217;introduction de <a href="https://fr.vuejs.org/v2/guide/index.html">Vue.js</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sujet-du-tp"><a class="anchor" href="#sujet-du-tp"></a>Sujet du TP</h3>
+<div class="paragraph">
+<p>On souhaite concevoir une application web qui affiche une table de multiplication.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Une table de multiplication affiche dans les lignes et colonnes le résultat de la multiplication des petits nombres entiers naturels. Le terme usité du Moyen Âge au xvie siècle était « livret ».</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Table de multiplication<br>
+<cite>https://fr.wikipedia.org/wiki/Table_de_multiplication</cite>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<em>Le système de numération décimale de position permet d&#8217;effectuer la multiplication de deux nombres quelconques à l&#8217;aide de la seule connaissance des produits des nombres de 0 à 9 entre eux. C&#8217;est à l&#8217;école primaire que s&#8217;effectue l&#8217;apprentissage des tables qui récapitulent tous ces produits. La tradition a longtemps exigé la connaissance des tables de multiplication portant jusqu’à 12 ou 13 au lieu de 9.</em> (source : wikipedia)
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="travaux-pratiques"><a class="anchor" href="#travaux-pratiques"></a>Travaux pratiques</h3>
+<div class="paragraph">
+<p>Durée moyenne : 2h à 4H</p>
+</div>
+<div class="paragraph">
+<p>Concevoir une application web, avec Vue.js, qui affiche
+une table de multiplication sur la base d&#8217;une valeur soumise par l&#8217;utilisateur.</p>
+</div>
+<div class="paragraph">
+<p>Exemple de la table de 1 :</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/table-de-un-exemple.png" alt="table de un exemple" title="table de un exemple"></span></p>
+</div>
+<div class="sect3">
+<h4 id="analyse"><a class="anchor" href="#analyse"></a>Analyse</h4>
+<div class="paragraph">
+<p>Identification des composants.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>App.vue</code> : L&#8217;application principale (composant principal) qui interagit avec l&#8217;utilsateur</p>
+</li>
+<li>
+<p><code>TableMultiplication</code> : La table de multiplication (présentation du titre et des lignes)</p>
+</li>
+<li>
+<p><code>TableRow</code> : Ligne d&#8217;une table (représentation d&#8217;une ligne)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Listing 1. Schéma hiérarchique des composants</div>
+<div class="content">
+<pre class="CodeRay highlight"><code>App
+`-- TableMultiplication
+    `-- TableRow</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>A FAIRE</em></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>En vous inspirant du <a href="https://fr.vuejs.org/v2/guide/index.html">guide Vue.js</a>, et dans le <strong>respect de l&#8217;analyse</strong> ci-dessus,
+concevoir une implémentation du cas.</p>
+</li>
+<li>
+<p>La suite : On souhaite que la page principale (<code>App.vue</code>), affiche, en plus, la table des tables de multiplication de 1 à 10. Exemple.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/table-des-tables-multiplication.png" alt="table des tables multiplication" title="table-des-tables-multiplication"></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0<br>
+Last updated 2019-02-03 15:13:20 CET
+</div>
+</div>
+</body>
+</html>

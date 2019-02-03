@@ -1,0 +1,62 @@
+= Premier TP
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+== Introduction
+
+L'exercice de programmation que l'on vous propose a  pour objectif
+de vous permettre de consolider les premiers concepts présentés dans
+la page d'introduction de https://fr.vuejs.org/v2/guide/index.html[Vue.js].
+
+
+== Sujet du TP
+
+On souhaite concevoir une application web qui affiche une table de multiplication.
+
+[quote, Table de multiplication, https://fr.wikipedia.org/wiki/Table_de_multiplication]
+____
+Une table de multiplication affiche dans les lignes et colonnes le résultat de la multiplication des petits nombres entiers naturels. Le terme usité du Moyen Âge au xvie siècle était « livret ».
+____
+
+TIP: _Le système de numération décimale de position permet d'effectuer la multiplication de deux nombres quelconques à l'aide de la seule connaissance des produits des nombres de 0 à 9 entre eux. C'est à l'école primaire que s'effectue l'apprentissage des tables qui récapitulent tous ces produits. La tradition a longtemps exigé la connaissance des tables de multiplication portant jusqu’à 12 ou 13 au lieu de 9._ (source : wikipedia)
+
+
+== Travaux pratiques
+
+Durée moyenne : 2h à 4H
+
+Concevoir une application web, avec Vue.js, qui affiche
+une table de multiplication sur la base d'une valeur soumise par l'utilisateur.
+
+Exemple de la table de 1 :
+
+image:table-de-un-exemple.png[title="table de un exemple"]
+
+=== Analyse
+
+Identification des composants.
+
+* `App.vue` : L'application principale (composant principal) qui interagit avec l'utilsateur
+* `TableMultiplication` : La table de multiplication (présentation du titre et des lignes)
+* `TableRow` : Ligne d'une table (représentation d'une ligne)
+
+[source, title="Schéma hiérarchique des composants"]
+----
+App
+`-- TableMultiplication
+    `-- TableRow
+----
+
+_A FAIRE_
+
+====
+. En vous inspirant du https://fr.vuejs.org/v2/guide/index.html[guide Vue.js], et dans le *respect de l'analyse* ci-dessus,
+concevoir une implémentation du cas.
+
+. La suite : On souhaite que la page principale (`App.vue`), affiche, en plus, la table des tables de multiplication de 1 à 10. Exemple.
+
+image:table-des-tables-multiplication.png[title="table-des-tables-multiplication"]
+====
+
+

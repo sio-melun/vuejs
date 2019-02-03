@@ -1,0 +1,47 @@
+= VueJS Introduction
+Section BTS SIO SLAM (LDV Melun) O. Capuozzo, G. Chamillard
+v1.0, 2018-07-30: Version asciidoc
+:description: TP d'initialtion Vue.js
+:icons: font
+:listing-caption: Listing
+:toc-title: Table des matieres
+:toc:
+:toclevels: 2
+:source-highlighter: coderay
+ifdef::backend-pdf[]
+:source-highlighter: rouge
+:title-logo-image: image:kpu.png[pdfwidth=4.25in,align=center]
+endif::[]
+ifndef::backend-pdf[]
+:imagesdir: images
+endif::[]
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+== Présentation
+
+ifdef::backend-pdf[]
+image:logo-vuejs.png[title="Vue.js", 200]
+endif::[]
+
+ifndef::backend-pdf[]
+image:logo-vuejs.png[title="Vue.js", 200]
+endif::[]
+
+
+Vue est un framework JavaScript relativement bien documenté (https://fr.vuejs.org/index.html),
+facile d'accès et performant, centré sur la notion de composant réutilisable, testable et maintenanble.
+
+
+Pour réaliser les travaux pratiques, vous aurez besoin d'aller plus en profondeur sur la connaissance des composants.
+La documentation Vue.js est accessible ici : https://fr.vuejs.org/v2/guide/index.html
+
+
+// <<<
+include::_vue-table-multiplication.adoc[leveloffset=+1]
