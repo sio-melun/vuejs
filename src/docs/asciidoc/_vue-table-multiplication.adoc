@@ -10,7 +10,16 @@ de vous permettre de consolider les premiers concepts présentés dans
 la page d'introduction de https://fr.vuejs.org/v2/guide/index.html[Vue.js].
 
 
-== Sujet du TP
+== Le TP
+
+=== Prérequis
+
+Avoir étudié/réalisé les instructions/exemples des ressources :
+
+* Environnement de travail et création d’un projet (sur l'intranet)
+* Chapitre introduction du guide de Vue.js : https://vuejs.org/v2/guide/index.html
+
+=== Objectif
 
 On souhaite concevoir une application web qui affiche une table de multiplication.
 
@@ -22,7 +31,7 @@ ____
 TIP: _Le système de numération décimale de position permet d'effectuer la multiplication de deux nombres quelconques à l'aide de la seule connaissance des produits des nombres de 0 à 9 entre eux. C'est à l'école primaire que s'effectue l'apprentissage des tables qui récapitulent tous ces produits. La tradition a longtemps exigé la connaissance des tables de multiplication portant jusqu’à 12 ou 13 au lieu de 9._ (source : wikipedia)
 
 
-== Travaux pratiques
+== Travaux à réalisés
 
 Durée moyenne : 2h à 4H
 
@@ -52,11 +61,14 @@ _A FAIRE_
 
 ====
 . En vous inspirant du https://fr.vuejs.org/v2/guide/index.html[guide Vue.js], et dans le *respect de l'analyse* ci-dessus,
-concevoir une implémentation du cas.
+concevoir l'application attendue.
 
 . La suite : On souhaite que la page principale (`App.vue`), affiche, en plus, la table des tables de multiplication de 1 à 10. Exemple.
 
 image:table-des-tables-multiplication.png[title="table-des-tables-multiplication"]
+
+. Donnez le schéma hiérarchique des composants
+. Développez votre solution
 ====
 
 
