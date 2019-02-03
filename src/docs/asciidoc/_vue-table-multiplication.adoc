@@ -31,7 +31,7 @@ ____
 TIP: _Le système de numération décimale de position permet d'effectuer la multiplication de deux nombres quelconques à l'aide de la seule connaissance des produits des nombres de 0 à 9 entre eux. C'est à l'école primaire que s'effectue l'apprentissage des tables qui récapitulent tous ces produits. La tradition a longtemps exigé la connaissance des tables de multiplication portant jusqu’à 12 ou 13 au lieu de 9._ (source : wikipedia)
 
 
-== Travaux à réalisés
+== Travaux à réaliser
 
 Durée moyenne : 2h à 4H
 
@@ -57,7 +57,7 @@ App
     `-- TableRow
 ----
 
-_A FAIRE_
+=== À faire
 
 ====
 . En vous inspirant du https://fr.vuejs.org/v2/guide/index.html[guide Vue.js], et dans le *respect de l'analyse* ci-dessus,
