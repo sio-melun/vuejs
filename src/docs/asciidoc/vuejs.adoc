@@ -37,8 +37,11 @@ endif::[]
 Vue est un framework JavaScript relativement bien documenté (https://fr.vuejs.org/index.html),
 facile d'accès et performant, centré sur la notion de composant réutilisable, testable et maintenanble.
 
+Crée en 2013 par Evan You (ancien ingénieur développeur chez Google - Angular)
+
 Pour réaliser les travaux pratiques, vous aurez besoin d'aller plus en profondeur sur la connaissance des composants.
 La documentation Vue.js est accessible ici : https://fr.vuejs.org/v2/guide/index.html
 
 // <<<
 include::_vue-table-multiplication.adoc[leveloffset=+1]
+

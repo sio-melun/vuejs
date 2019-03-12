@@ -9,7 +9,6 @@ L'exercice de programmation que l'on vous propose a  pour objectif
 de vous permettre de consolider les premiers concepts présentés dans
 la page d'introduction de https://fr.vuejs.org/v2/guide/index.html[Vue.js].
 
-
 == Le TP
 
 === Prérequis
@@ -17,7 +16,9 @@ la page d'introduction de https://fr.vuejs.org/v2/guide/index.html[Vue.js].
 Avoir étudié/réalisé les instructions/exemples des ressources :
 
 * Environnement de travail et création d’un projet (sur l'intranet)
-* Chapitre introduction du guide de Vue.js : https://vuejs.org/v2/guide/index.html
+* Chapitre introduction du guide de Vue.js : https://vuejs.org/v2/guide/index.html,
+en particulier la notion de composant.
+
 
 === Objectif
 
@@ -36,7 +37,7 @@ TIP: _Le système de numération décimale de position permet d'effectuer la mul
 Durée moyenne : 2h à 4H
 
 Concevoir une application web, avec Vue.js, qui affiche
-une table de multiplication sur la base d'une valeur soumise par l'utilisateur.
+une table de multiplication sur la base d'une valeur soumise par l'utilisateur (0 à 9 ou 13).
 
 Exemple de la table de 1 :
 
@@ -67,8 +68,8 @@ concevoir l'application attendue.
 
 image:table-des-tables-multiplication.png[title="table-des-tables-multiplication"]
 
-. Donnez le schéma hiérarchique des composants
-. Développez votre solution
+* 2.1 Donnez le schéma hiérarchique des composants
+* 2.2 Développez votre solution
 ====
 
 
