@@ -19,9 +19,11 @@ Avoir étudié/réalisé les instructions/exemples des ressources :
 en particulier la notion de composant.
 
 
+
 == Objectif
 
-On souhaite concevoir une application web qui affiche une table de multiplication.
+On souhaite concevoir une application web qui affiche une table de multiplication (1 à 10 ou 13), selon
+une valeur soumise par l'utilisateur.
 
 [quote, Table de multiplication, https://fr.wikipedia.org/wiki/Table_de_multiplication]
 ____
@@ -36,9 +38,11 @@ TIP: _Le système de numération décimale de position permet d'effectuer la mul
 Durée moyenne : 2h à 4H
 
 Concevoir une application web, avec Vue.js, qui affiche
-une table de multiplication sur la base d'une valeur soumise par l'utilisateur (0 à 9 ou 13).
+une table de multiplication sur la base d'une valeur soumise par l'utilisateur (1 à 10 ou 13).
 
-Exemple de la table de 1 :
+Exemple de la table :
+
+Entrez un nombre : 1
 
 image:table-de-un-exemple.png[title="table de un exemple"]
 
@@ -57,18 +61,59 @@ App
     `-- TableRow
 ----
 
-En vous inspirant du https://fr.vuejs.org/v2/guide/index.html[guide Vue.js], et dans le *respect de l'analyse* ci-dessus,
+On aura compris que le composant `TableDeMultiplication` itère avec le composant `TableRow`.
+
+Dans le *respect de l'analyse* ci-dessus,
 concevoir l'application attendue (pour la création de l'application vous utiliserez la ligne de commande,  `vue create application-name`)
+
+Exemple du composant principal `App.vue` :
+[source, javascript]
+----
+<template>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png" width="100" height="100">
+    <label>  Entrez une valeur :
+      <input type="text" v-model="n">
+    </label>
+    <p><small style="font-style:italic;">(val n = {{n}})</small></p>
+    <TableMultiplication v-bind:n="n"/>
+  </div>
+</template>
+
+<script>
+import TableMultiplication from "./components/TableMultiplication.vue";
+export default {
+  name: "app",
+  data: function() {
+    return {
+      n: 6
+    };
+  },
+  components: {
+    TableMultiplication
+  }
+};
+</script>
+
+<style> ... </style>
+----
+
+Dans ce modèle de programmation, les composants sont dits "mono-fichier", c'est à dire
+définis dans des fichiers à part, d'extension `.vue` par défaut, et rangés dans
+un dossier nommé `components` (voir https://fr.vuejs.org/v2/style-guide/index.html#Fichier-composants-fortement-recommande[Style guide - fichier-composants-fortement-recommande])
 
 === La suite
 
 ====
 
-. On souhaite que la page principale (`App.vue`), affiche, en plus, la table des tables de multiplication de 1 à 10. Exemple.
+. On souhaite que la page principale (`App.vue`), puisse afficher, en plus, la table des tables de
+multiplication de 1 à 10 ou 13 (prévoir cette option). Exemple.
 
 image:table-des-tables-multiplication.png[title="table-des-tables-multiplication"]
 
-* 2.1 Donnez le schéma hiérarchique des composants
-* 2.2 Développez votre solution
+Nous nommerons le nouveau composant `LesTablesDeMultiplication`, qui utilisera le composant `TableDeMultiplication` (prévoir une itération)
+
+
+* 2.1 Faire évoluer votre application afin d'afficher les tables de multiplication de 1 à 13.
 ====
 
