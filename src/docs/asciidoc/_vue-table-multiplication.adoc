@@ -61,7 +61,7 @@ App
     `-- TableRow
 ----
 
-On aura compris que le composant `TableDeMultiplication` itère avec le composant `TableRow`.
+On aura compris que le composant `TableMultiplication` itère avec le composant `TableRow`.
 
 Dans le *respect de l'analyse* ci-dessus,
 concevoir l'application attendue (pour la création de l'application vous utiliserez la ligne de commande,  `vue create application-name`)
@@ -111,7 +111,7 @@ multiplication de 1 à 10 ou 13 (prévoir cette option). Exemple.
 
 image:table-des-tables-multiplication.png[title="table-des-tables-multiplication"]
 
-Nous nommerons le nouveau composant `LesTablesDeMultiplication`, qui utilisera le composant `TableDeMultiplication` (prévoir une itération)
+Nous nommerons le nouveau composant `LesTablesMultiplication`, qui utilisera le composant `TableMultiplication` (prévoir une itération)
 
 
 * 2.1 Faire évoluer votre application afin d'afficher les tables de multiplication de 1 à 13.
