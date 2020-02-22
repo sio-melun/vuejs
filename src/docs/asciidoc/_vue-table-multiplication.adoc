@@ -1,4 +1,4 @@
-= Premier TP
+= TP introduction : composants avec Vue.js
 ifndef::backend-pdf[]
 :imagesdir: images
 endif::[]
@@ -14,10 +14,9 @@ la page d'introduction de https://fr.vuejs.org/v2/guide/index.html[Vue.js].
 
 Avoir étudié/réalisé les instructions/exemples des ressources :
 
-* Environnement de travail et création d’un projet (sur l'intranet)
+* Environnement de travail, création d’un projet (sur l'intranet), premiers exercices incluant le _routing_.
 * Chapitre introduction du guide de Vue.js : https://vuejs.org/v2/guide/index.html,
 en particulier la notion de composant.
-
 
 
 == Objectif
@@ -33,14 +32,69 @@ ____
 TIP: _Le système de numération décimale de position permet d'effectuer la multiplication de deux nombres quelconques à l'aide de la seule connaissance des produits des nombres de 0 à 9 entre eux. C'est à l'école primaire que s'effectue l'apprentissage des tables qui récapitulent tous ces produits. La tradition a longtemps exigé la connaissance des tables de multiplication portant jusqu’à 12 ou 13 au lieu de 9._ (source : wikipedia)
 
 
+
+== Architecture applicative
+
+
+Vous allez concevoir une application structurée à base de composants.
+
+
+=== Composant mono fichier (extension .vue)
+
+Un composant _Vue_ est structuré de la sorte :
+
+====
+<template> ... </template>
+
+<script> ... </script>
+
+<style> ... </style>
+====
+
+Un composant a son propre cycle de vie. Il sera _created_, _compiled_, _attached_ or _detached_, et finalement _destroyed_.
+À chacune de ces actions, un événement est déclenché (_event_) qui peut faire l'objet de traitement particulier par le composant (
+_hook functions_). Voir à ce sujet  https://alligator.io/vuejs/component-lifecycle/.
+
+=== Communication inter-composants
+
+Avec Vue.js, la communication entre composants s'opère de 3 façons possibles (hors Vuex)
+
+1. Communication Parent vers Enfant (via `props`).
+2. Communication Enfant vers Parent (via `this.$emit`).
+3. Communication entre n'importe quel composant (via `this.$root.$emit`).
+
+Voir ici : https://medium.com/js-dojo/component-communication-in-vue-js-ca8b591d7efa
+
+image:com-composant.png[com inter composant, 600]
+
+À cela, ajoutons :
+[start="4"]
+4. le passage de valeurs dynamiques à une vue, via sa route associée.
+Voir : https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes
+et l'exemple associé : https://jsfiddle.net/yyx990803/4xfa2f19/
+
+== Le squelette du projet
+
+Le projet est livré avec des composants de vue (dossier `views`), de portée de `pages` (liées à des routes) et des composants
+exploités par ces vues (dossier `components`).
+
+image:tree-folders.png[tree folders]
+
 == Travaux à réaliser
 
 Durée moyenne : 2h à 4H
 
-Concevoir une application web, avec Vue.js, qui affiche
-une table de multiplication sur la base d'une valeur soumise par l'utilisateur (1 à 10 ou 13).
+Le composant `TableRow.vue` est prêt à l'emploi (sauf si vous souhaitez l'adapter à votre goût).
 
-Exemple de la table :
+Le composant `TableMultiplication.vue` est incomplet. Il vous incombe de le terminer, le but étant de lui faire afficher une table de multiplication sur la base d'une valeur soumise par l'utilisateur (1 à 10 ou 13).
+[source, title="Schéma hiérarchique des composants"]
+----
+Home (dans views)
+`-- TableMultiplication (dans components)
+    `-- TableRow (dans components)
+----
+
+Exemple de table de multiplication :
 
 Entrez un nombre : 1
 
@@ -50,70 +104,65 @@ image:table-de-un-exemple.png[title="table de un exemple"]
 
 Identification des composants.
 
-* `App.vue` : L'application principale (composant principal) qui interagit avec l'utilsateur
-* `TableMultiplication` : La table de multiplication (présentation du titre et des lignes)
-* `TableRow` : Ligne d'une table (représentation d'une ligne)
+* `Home.vue` : Le composant intégré à la page d'accueil (composant principal App.vue) qui interagit avec l'utilsateur
+* `TableMultiplication.vue` : La table de multiplication (présentation du titre et des lignes)
+* `TableRow.vue` : Ligne d'une table (représentation d'une ligne)
 
-[source, title="Schéma hiérarchique des composants"]
-----
-App
-`-- TableMultiplication
-    `-- TableRow
-----
 
-On aura compris que le composant `TableMultiplication` itère avec le composant `TableRow`.
+On aura compris que le composant `TableMultiplication` devra itèrer avec le composant `TableRow`.
 
-Dans le *respect de l'analyse* ci-dessus,
-concevoir l'application attendue (pour la création de l'application vous utiliserez la ligne de commande,  `vue create application-name`)
+Dans le *respect de l'analyse* ci-dessus, poursuivre la programmation de cette application.
 
-Exemple du composant principal `App.vue` :
+
+Exemple du composant de vue `Home.vue` :
 [source, javascript]
 ----
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" width="100" height="100">
-    <label>  Entrez une valeur :
-      <input type="text" v-model="n">
-    </label>
-    <p><small style="font-style:italic;">(val n = {{n}})</small></p>
-    <TableMultiplication v-bind:n="n"/>
+<div>
+    <br>
+    <label for="user-input"> Entrez une valeur : </label>
+    <input id="user-input" type="text" v-model="n">
+    <p>
+      <small style="font-style:italic;">(val n = {{n}})</small>
+    </p>
+    <TableMultiplication v-bind:n="parseInt(n)"/>
+    <hr/>
   </div>
 </template>
 
 <script>
-import TableMultiplication from "./components/TableMultiplication.vue";
-export default {
-  name: "app",
-  data: function() {
-    return {
-      n: 6
-    };
-  },
-  components: {
-    TableMultiplication
-  }
-};
+import TableMultiplication from "../components/TableMultiplication.vue";
+  export default {
+    name: "home",
+    data: function () {
+      return {
+        n: 7
+      };
+    },
+    components: {
+      TableMultiplication,
+    }
+  };
 </script>
-
 <style> ... </style>
 ----
 
-Dans ce modèle de programmation, les composants sont dits "mono-fichier", c'est à dire
-définis dans des fichiers à part, d'extension `.vue` par défaut, et rangés dans
-un dossier nommé `components` (voir https://fr.vuejs.org/v2/style-guide/index.html#Fichier-composants-fortement-recommande[Style guide - fichier-composants-fortement-recommande])
+Le composant de page `Home.vue` utilise le composant `TableMultiplication`.
+
+Dans ce modèle de programmation, les composants, qu'ils soient de page ou non,
+sont dits "mono-fichier", c'est à dire  définis dans des fichiers à part, d'extension `.vue` par défaut.
+Ces composants sont rangés, selon leur portée, dans les dossiers `views` ou `components` (voir https://fr.vuejs.org/v2/style-guide/index.html#Fichier-composants-fortement-recommande[Style guide - fichier-composants-fortement-recommande])
 
 === La suite
 
 ====
 
-. On souhaite que la page principale (`App.vue`), puisse afficher, en plus, la table des tables de
-multiplication de 1 à 10 ou 13 (prévoir cette option). Exemple.
+. On souhaite que la route `tables`, puisse être liée à une nouvelle page de vue (à créer dans le dossier `views`)
+qui affiche la table des tables de multiplication de 1 à 10 ou 13 (prévoir cette option). Exemple.
 
-image:table-des-tables-multiplication.png[title="table-des-tables-multiplication"]
+image:table-des-tables.png[title="table-des-tables-multiplication"]
 
-Nous nommerons le nouveau composant `LesTablesMultiplication`, qui utilisera le composant `TableMultiplication` (prévoir une itération)
+Nous nommerons ce nouveau composant `LesTablesMultiplication`, qui utilisera le composant `TableMultiplication` (prévoir une itération)
 
-
-* 2.1 Faire évoluer votre application afin d'afficher les tables de multiplication de 1 à 13.
 ====
 
