@@ -69,7 +69,7 @@ image:com-composant.png[com inter composant, 600]
 
 À cela, ajoutons :
 [start="4"]
-4. le passage de valeurs dynamiques à une vue, via sa route associée.
+. le passage de valeurs dynamiques à une vue, via sa route associée.
 Voir : https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes
 et l'exemple associé : https://jsfiddle.net/yyx990803/4xfa2f19/
 

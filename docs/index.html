@@ -26,11 +26,13 @@
 <div id="toctitle">Table des matieres</div>
 <ul class="sectlevel1">
 <li><a href="#présentation">Présentation</a></li>
-<li><a href="#premier-tp">Premier TP</a>
+<li><a href="#tp-introduction-composants-avec-vue-js">TP introduction : composants avec Vue.js</a>
 <ul class="sectlevel2">
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#prérequis">Prérequis</a></li>
 <li><a href="#objectif">Objectif</a></li>
+<li><a href="#architecture-applicative">Architecture applicative</a></li>
+<li><a href="#le-squelette-du-projet">Le squelette du projet</a></li>
 <li><a href="#travaux-à-réaliser">Travaux à réaliser</a></li>
 </ul>
 </li>
@@ -58,7 +60,7 @@ La documentation Vue.js est accessible ici : <a href="https://fr.vuejs.org/v2/gu
 </div>
 </div>
 <div class="sect1">
-<h2 id="premier-tp"><a class="anchor" href="#premier-tp"></a>Premier TP</h2>
+<h2 id="tp-introduction-composants-avec-vue-js"><a class="anchor" href="#tp-introduction-composants-avec-vue-js"></a>TP introduction : composants avec Vue.js</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="introduction"><a class="anchor" href="#introduction"></a>Introduction</h3>
@@ -76,7 +78,7 @@ la page d&#8217;introduction de <a href="https://fr.vuejs.org/v2/guide/index.htm
 <div class="ulist">
 <ul>
 <li>
-<p>Environnement de travail et création d’un projet (sur l&#8217;intranet)</p>
+<p>Environnement de travail, création d’un projet (sur l&#8217;intranet), premiers exercices incluant le <em>routing</em>.</p>
 </li>
 <li>
 <p>Chapitre introduction du guide de Vue.js : <a href="https://vuejs.org/v2/guide/index.html" class="bare">https://vuejs.org/v2/guide/index.html</a>,
@@ -116,16 +118,103 @@ une valeur soumise par l&#8217;utilisateur.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="architecture-applicative"><a class="anchor" href="#architecture-applicative"></a>Architecture applicative</h3>
+<div class="paragraph">
+<p>Vous allez concevoir une application structurée à base de composants.</p>
+</div>
+<div class="sect3">
+<h4 id="composant-mono-fichier-extension-vue"><a class="anchor" href="#composant-mono-fichier-extension-vue"></a>Composant mono fichier (extension .vue)</h4>
+<div class="paragraph">
+<p>Un composant <em>Vue</em> est structuré de la sorte :</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>&lt;template&gt; &#8230;&#8203; &lt;/template&gt;</p>
+</div>
+<div class="paragraph">
+<p>&lt;script&gt; &#8230;&#8203; &lt;/script&gt;</p>
+</div>
+<div class="paragraph">
+<p>&lt;style&gt; &#8230;&#8203; &lt;/style&gt;</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Un composant a son propre cycle de vie. Il sera <em>created</em>, <em>compiled</em>, <em>attached</em> or <em>detached</em>, et finalement <em>destroyed</em>.
+À chacune de ces actions, un événement est déclenché (<em>event</em>) qui peut faire l&#8217;objet de traitement particulier par le composant (
+<em>hook functions</em>). Voir à ce sujet  <a href="https://alligator.io/vuejs/component-lifecycle/" class="bare">https://alligator.io/vuejs/component-lifecycle/</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="communication-inter-composants"><a class="anchor" href="#communication-inter-composants"></a>Communication inter-composants</h4>
+<div class="paragraph">
+<p>Avec Vue.js, la communication entre composants s&#8217;opère de 3 façons possibles (hors Vuex)</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Communication Parent vers Enfant (via <code>props</code>).</p>
+</li>
+<li>
+<p>Communication Enfant vers Parent (via <code>this.$emit</code>).</p>
+</li>
+<li>
+<p>Communication entre n&#8217;importe quel composant (via <code>this.$root.$emit</code>).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Voir ici : <a href="https://medium.com/js-dojo/component-communication-in-vue-js-ca8b591d7efa" class="bare">https://medium.com/js-dojo/component-communication-in-vue-js-ca8b591d7efa</a></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/com-composant.png" alt="com inter composant" width="600"></span></p>
+</div>
+<div class="paragraph">
+<p>À cela, ajoutons :</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic" start="4">
+<li>
+<p>le passage de valeurs dynamiques à une vue, via sa route associée.
+Voir : <a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes" class="bare">https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes</a>
+et l&#8217;exemple associé : <a href="https://jsfiddle.net/yyx990803/4xfa2f19/" class="bare">https://jsfiddle.net/yyx990803/4xfa2f19/</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="le-squelette-du-projet"><a class="anchor" href="#le-squelette-du-projet"></a>Le squelette du projet</h3>
+<div class="paragraph">
+<p>Le projet est livré avec des composants de vue (dossier <code>views</code>), de portée de <code>pages</code> (liées à des routes) et des composants
+exploités par ces vues (dossier <code>components</code>).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/tree-folders.png" alt="tree folders"></span></p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="travaux-à-réaliser"><a class="anchor" href="#travaux-à-réaliser"></a>Travaux à réaliser</h3>
 <div class="paragraph">
 <p>Durée moyenne : 2h à 4H</p>
 </div>
 <div class="paragraph">
-<p>Concevoir une application web, avec Vue.js, qui affiche
-une table de multiplication sur la base d&#8217;une valeur soumise par l&#8217;utilisateur (1 à 10 ou 13).</p>
+<p>Le composant <code>TableRow.vue</code> est prêt à l&#8217;emploi (sauf si vous souhaitez l&#8217;adapter à votre goût).</p>
 </div>
 <div class="paragraph">
-<p>Exemple de la table :</p>
+<p>Le composant <code>TableMultiplication.vue</code> est incomplet. Il vous incombe de le terminer, le but étant de lui faire afficher une table de multiplication sur la base d&#8217;une valeur soumise par l&#8217;utilisateur (1 à 10 ou 13).</p>
+</div>
+<div class="listingblock">
+<div class="title">Listing 1. Schéma hiérarchique des composants</div>
+<div class="content">
+<pre class="CodeRay highlight"><code>Home (dans views)
+`-- TableMultiplication (dans components)
+    `-- TableRow (dans components)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exemple de table de multiplication :</p>
 </div>
 <div class="paragraph">
 <p>Entrez un nombre : 1</p>
@@ -141,69 +230,64 @@ une table de multiplication sur la base d&#8217;une valeur soumise par l&#8217;u
 <div class="ulist">
 <ul>
 <li>
-<p><code>App.vue</code> : L&#8217;application principale (composant principal) qui interagit avec l&#8217;utilsateur</p>
+<p><code>Home.vue</code> : Le composant intégré à la page d&#8217;accueil (composant principal App.vue) qui interagit avec l&#8217;utilsateur</p>
 </li>
 <li>
-<p><code>TableMultiplication</code> : La table de multiplication (présentation du titre et des lignes)</p>
+<p><code>TableMultiplication.vue</code> : La table de multiplication (présentation du titre et des lignes)</p>
 </li>
 <li>
-<p><code>TableRow</code> : Ligne d&#8217;une table (représentation d&#8217;une ligne)</p>
+<p><code>TableRow.vue</code> : Ligne d&#8217;une table (représentation d&#8217;une ligne)</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="title">Listing 1. Schéma hiérarchique des composants</div>
-<div class="content">
-<pre class="CodeRay highlight"><code>App
-`-- TableMultiplication
-    `-- TableRow</code></pre>
-</div>
+<div class="paragraph">
+<p>On aura compris que le composant <code>TableMultiplication</code> devra itèrer avec le composant <code>TableRow</code>.</p>
 </div>
 <div class="paragraph">
-<p>On aura compris que le composant <code>TableMultiplication</code> itère avec le composant <code>TableRow</code>.</p>
+<p>Dans le <strong>respect de l&#8217;analyse</strong> ci-dessus, poursuivre la programmation de cette application.</p>
 </div>
 <div class="paragraph">
-<p>Dans le <strong>respect de l&#8217;analyse</strong> ci-dessus,
-concevoir l&#8217;application attendue (pour la création de l&#8217;application vous utiliserez la ligne de commande,  <code>vue create application-name</code>)</p>
-</div>
-<div class="paragraph">
-<p>Exemple du composant principal <code>App.vue</code> :</p>
+<p>Exemple du composant de vue <code>Home.vue</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="javascript"><span class="tag">&lt;template&gt;</span>
-  <span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">app</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;img</span> <span class="attribute-name">alt</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Vue logo</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">./assets/logo.png</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">100</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">height</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">100</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;label&gt;</span>  Entrez une valeur :
-      <span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">v-model</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">n</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;/label&gt;</span>
-    <span class="tag">&lt;p&gt;</span><span class="tag">&lt;small</span> <span class="attribute-name">style</span>=<span class="string"><span class="delimiter">&quot;</span><span class="key">font-style</span>:<span class="value">italic</span>;<span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>(val n = {{n}})<span class="tag">&lt;/small&gt;</span><span class="tag">&lt;/p&gt;</span>
-    <span class="tag">&lt;TableMultiplication</span> <span class="attribute-name">v-bind:n</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">n</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;div&gt;</span>
+    <span class="tag">&lt;br&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attribute-name">for</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">user-input</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span> Entrez une valeur : <span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">user-input</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">v-model</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">n</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p&gt;</span>
+      <span class="tag">&lt;small</span> <span class="attribute-name">style</span>=<span class="string"><span class="delimiter">&quot;</span><span class="key">font-style</span>:<span class="value">italic</span>;<span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>(val n = {{n}})<span class="tag">&lt;/small&gt;</span>
+    <span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;TableMultiplication</span> <span class="attribute-name">v-bind:n</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">parseInt(n)</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;hr</span><span class="tag">/&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
 <span class="tag">&lt;/template&gt;</span>
 
 <span class="tag">&lt;script&gt;</span>
-<span class="inline"><span class="reserved">import</span> TableMultiplication from <span class="string"><span class="delimiter">&quot;</span><span class="content">./components/TableMultiplication.vue</span><span class="delimiter">&quot;</span></span>;
-<span class="reserved">export</span> <span class="keyword">default</span> {
-  <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">app</span><span class="delimiter">&quot;</span></span>,
-  <span class="function">data</span>: <span class="keyword">function</span>() {
-    <span class="keyword">return</span> {
-      <span class="key">n</span>: <span class="integer">6</span>
-    };
-  },
-  <span class="key">components</span>: {
-    TableMultiplication
-  }
-};</span>
+<span class="inline"><span class="reserved">import</span> TableMultiplication from <span class="string"><span class="delimiter">&quot;</span><span class="content">../components/TableMultiplication.vue</span><span class="delimiter">&quot;</span></span>;
+  <span class="reserved">export</span> <span class="keyword">default</span> {
+    <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home</span><span class="delimiter">&quot;</span></span>,
+    <span class="function">data</span>: <span class="keyword">function</span> () {
+      <span class="keyword">return</span> {
+        <span class="key">n</span>: <span class="integer">7</span>
+      };
+    },
+    <span class="key">components</span>: {
+      TableMultiplication,
+    }
+  };</span>
 <span class="tag">&lt;/script&gt;</span>
-
 <span class="tag">&lt;style&gt;</span><span class="inline"> ... </span><span class="tag">&lt;/style&gt;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Dans ce modèle de programmation, les composants sont dits "mono-fichier", c&#8217;est à dire
-définis dans des fichiers à part, d&#8217;extension <code>.vue</code> par défaut, et rangés dans
-un dossier nommé <code>components</code> (voir <a href="https://fr.vuejs.org/v2/style-guide/index.html#Fichier-composants-fortement-recommande">Style guide - fichier-composants-fortement-recommande</a>)</p>
+<p>Le composant de page <code>Home.vue</code> utilise le composant <code>TableMultiplication</code>.</p>
+</div>
+<div class="paragraph">
+<p>Dans ce modèle de programmation, les composants, qu&#8217;ils soient de page ou non,
+sont dits "mono-fichier", c&#8217;est à dire  définis dans des fichiers à part, d&#8217;extension <code>.vue</code> par défaut.
+Ces composants sont rangés, selon leur portée, dans les dossiers <code>views</code> ou <code>components</code> (voir <a href="https://fr.vuejs.org/v2/style-guide/index.html#Fichier-composants-fortement-recommande">Style guide - fichier-composants-fortement-recommande</a>)</p>
 </div>
 </div>
 <div class="sect3">
@@ -213,23 +297,16 @@ un dossier nommé <code>components</code> (voir <a href="https://fr.vuejs.org/v2
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>On souhaite que la page principale (<code>App.vue</code>), puisse afficher, en plus, la table des tables de
-multiplication de 1 à 10 ou 13 (prévoir cette option). Exemple.</p>
+<p>On souhaite que la route <code>tables</code>, puisse être liée à une nouvelle page de vue (à créer dans le dossier <code>views</code>)
+qui affiche la table des tables de multiplication de 1 à 10 ou 13 (prévoir cette option). Exemple.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/table-des-tables-multiplication.png" alt="table des tables multiplication" title="table-des-tables-multiplication"></span></p>
+<p><span class="image"><img src="images/table-des-tables.png" alt="table des tables" title="table-des-tables-multiplication"></span></p>
 </div>
 <div class="paragraph">
-<p>Nous nommerons le nouveau composant <code>LesTablesMultiplication</code>, qui utilisera le composant <code>TableMultiplication</code> (prévoir une itération)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>2.1 Faire évoluer votre application afin d&#8217;afficher les tables de multiplication de 1 à 13.</p>
-</li>
-</ul>
+<p>Nous nommerons ce nouveau composant <code>LesTablesMultiplication</code>, qui utilisera le composant <code>TableMultiplication</code> (prévoir une itération)</p>
 </div>
 </div>
 </div>
