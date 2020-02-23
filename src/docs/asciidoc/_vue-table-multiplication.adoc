@@ -31,12 +31,16 @@ ____
 
 TIP: _Le système de numération décimale de position permet d'effectuer la multiplication de deux nombres quelconques à l'aide de la seule connaissance des produits des nombres de 0 à 9 entre eux. C'est à l'école primaire que s'effectue l'apprentissage des tables qui récapitulent tous ces produits. La tradition a longtemps exigé la connaissance des tables de multiplication portant jusqu’à 12 ou 13 au lieu de 9._ (source : wikipedia)
 
+== Le squelette du projet
 
+Le projet est livré avec des composants de portée de `pages` (liées à des routes), dans le dossier `views`,  et des composants
+exploités par ces vues (dossier `components`).
 
-== Architecture applicative
+image:tree-folders.png[tree folders]
 
+Source du projet : https://github.com/sio-melun/table-multiplication
 
-Vous allez concevoir une application structurée à base de composants.
+Votre rôle consiste à poursuivre la conception de cette application structurée à base de composants.
 
 
 === Composant mono fichier (extension .vue)
@@ -57,7 +61,7 @@ _hook functions_). Voir à ce sujet  https://alligator.io/vuejs/component-lifecy
 
 === Communication inter-composants
 
-Avec Vue.js, la communication entre composants s'opère de 3 façons possibles (hors Vuex)
+Avec Vue.js, la communication entre composants s'opère de 3 façons (hors _Vuex_)
 
 1. Communication Parent vers Enfant (via `props`).
 2. Communication Enfant vers Parent (via `this.$emit`).
@@ -70,15 +74,8 @@ image:com-composant.png[com inter composant, 600]
 À cela, ajoutons :
 [start="4"]
 . le passage de valeurs dynamiques à une vue, via sa route associée.
-Voir : https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes
-et l'exemple associé : https://jsfiddle.net/yyx990803/4xfa2f19/
-
-== Le squelette du projet
-
-Le projet est livré avec des composants de vue (dossier `views`), de portée de `pages` (liées à des routes) et des composants
-exploités par ces vues (dossier `components`).
-
-image:tree-folders.png[tree folders]
+À étudier ici : https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes
+avec l'exemple associé : https://jsfiddle.net/yyx990803/4xfa2f19/
 
 == Travaux à réaliser
 
@@ -131,7 +128,7 @@ Exemple du composant de vue `Home.vue` :
 </template>
 
 <script>
-import TableMultiplication from "../components/TableMultiplication.vue";
+  import TableMultiplication from "../components/TableMultiplication.vue";
   export default {
     name: "home",
     data: function () {
@@ -166,3 +163,7 @@ Nous nommerons ce nouveau composant `LesTablesMultiplication`, qui utilisera le 
 
 ====
 
+====
+[start=2]
+. À vous de proposer, sur ce même thème, une autre évolution !
+====

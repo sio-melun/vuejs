@@ -31,7 +31,6 @@
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#prérequis">Prérequis</a></li>
 <li><a href="#objectif">Objectif</a></li>
-<li><a href="#architecture-applicative">Architecture applicative</a></li>
 <li><a href="#le-squelette-du-projet">Le squelette du projet</a></li>
 <li><a href="#travaux-à-réaliser">Travaux à réaliser</a></li>
 </ul>
@@ -118,9 +117,19 @@ une valeur soumise par l&#8217;utilisateur.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="architecture-applicative"><a class="anchor" href="#architecture-applicative"></a>Architecture applicative</h3>
+<h3 id="le-squelette-du-projet"><a class="anchor" href="#le-squelette-du-projet"></a>Le squelette du projet</h3>
 <div class="paragraph">
-<p>Vous allez concevoir une application structurée à base de composants.</p>
+<p>Le projet est livré avec des composants de portée de <code>pages</code> (liées à des routes), dans le dossier <code>views</code>,  et des composants
+exploités par ces vues (dossier <code>components</code>).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="images/tree-folders.png" alt="tree folders"></span></p>
+</div>
+<div class="paragraph">
+<p>Source du projet : <a href="https://github.com/sio-melun/table-multiplication" class="bare">https://github.com/sio-melun/table-multiplication</a></p>
+</div>
+<div class="paragraph">
+<p>Votre rôle consiste à poursuivre la conception de cette application structurée à base de composants.</p>
 </div>
 <div class="sect3">
 <h4 id="composant-mono-fichier-extension-vue"><a class="anchor" href="#composant-mono-fichier-extension-vue"></a>Composant mono fichier (extension .vue)</h4>
@@ -149,7 +158,7 @@ une valeur soumise par l&#8217;utilisateur.</p>
 <div class="sect3">
 <h4 id="communication-inter-composants"><a class="anchor" href="#communication-inter-composants"></a>Communication inter-composants</h4>
 <div class="paragraph">
-<p>Avec Vue.js, la communication entre composants s&#8217;opère de 3 façons possibles (hors Vuex)</p>
+<p>Avec Vue.js, la communication entre composants s&#8217;opère de 3 façons (hors <em>Vuex</em>)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -177,21 +186,11 @@ une valeur soumise par l&#8217;utilisateur.</p>
 <ol class="arabic" start="4">
 <li>
 <p>le passage de valeurs dynamiques à une vue, via sa route associée.
-Voir : <a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes" class="bare">https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes</a>
-et l&#8217;exemple associé : <a href="https://jsfiddle.net/yyx990803/4xfa2f19/" class="bare">https://jsfiddle.net/yyx990803/4xfa2f19/</a></p>
+À étudier ici : <a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes" class="bare">https://router.vuejs.org/guide/essentials/dynamic-matching.html#reacting-to-params-changes</a>
+avec l&#8217;exemple associé : <a href="https://jsfiddle.net/yyx990803/4xfa2f19/" class="bare">https://jsfiddle.net/yyx990803/4xfa2f19/</a></p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="le-squelette-du-projet"><a class="anchor" href="#le-squelette-du-projet"></a>Le squelette du projet</h3>
-<div class="paragraph">
-<p>Le projet est livré avec des composants de vue (dossier <code>views</code>), de portée de <code>pages</code> (liées à des routes) et des composants
-exploités par ces vues (dossier <code>components</code>).</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="images/tree-folders.png" alt="tree folders"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -265,7 +264,7 @@ exploités par ces vues (dossier <code>components</code>).</p>
 <span class="tag">&lt;/template&gt;</span>
 
 <span class="tag">&lt;script&gt;</span>
-<span class="inline"><span class="reserved">import</span> TableMultiplication from <span class="string"><span class="delimiter">&quot;</span><span class="content">../components/TableMultiplication.vue</span><span class="delimiter">&quot;</span></span>;
+<span class="inline">  <span class="reserved">import</span> TableMultiplication from <span class="string"><span class="delimiter">&quot;</span><span class="content">../components/TableMultiplication.vue</span><span class="delimiter">&quot;</span></span>;
   <span class="reserved">export</span> <span class="keyword">default</span> {
     <span class="key">name</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">home</span><span class="delimiter">&quot;</span></span>,
     <span class="function">data</span>: <span class="keyword">function</span> () {
@@ -307,6 +306,17 @@ qui affiche la table des tables de multiplication de 1 à 10 ou 13 (prévoir cet
 </div>
 <div class="paragraph">
 <p>Nous nommerons ce nouveau composant <code>LesTablesMultiplication</code>, qui utilisera le composant <code>TableMultiplication</code> (prévoir une itération)</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic" start="2">
+<li>
+<p>À vous de proposer, sur ce même thème, une autre évolution !</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
